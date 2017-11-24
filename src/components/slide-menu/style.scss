@@ -1,0 +1,102 @@
+@charset 'utf-8';
+@import '~scss/base/var';
+
+.components-slide-menu{
+    position: fixed;
+    top: 0;
+    right: -280px;
+    bottom: 0;
+    z-index: 99;
+    // display: none;
+    background-color: rgb(255, 254, 254);
+    transform: translate(0px);
+    transition: all .3s ease-in;
+    min-width: 280px;
+    &.show{
+        transform: translate(-280px);
+    }
+    .slide-menu-header{
+        color: $font-white;
+        background-color: $base-color;
+        background-image: url(~assets/sidebar-header.png);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .menu-header-user{
+        position: relative;
+        padding-top: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu-header-image{
+        width: 54px;
+        height: 54px;
+        border-radius: 50% 50%;
+        margin: 15px;
+        background-color: $bg-white;
+    }
+
+    .menu-header-button{
+        background: transparent;
+        border: none;
+        margin: 15px;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 20px;
+        color: $font-base;
+    }
+
+    .slide-menu-item,
+    .slide-menu-subitem{
+        position: relative;
+        margin-top: 8px;
+        cursor: pointer;
+        user-select: none;
+        display: block;
+        padding: 0 56px 0 16px;
+        transition: all .2s ease-in-out;
+        overflow: hidden;
+        font-weight: 400;
+        white-space: nowrap;
+        height: 48px;
+        line-height: 48px;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        &:link {
+            color: $font-base;
+        }
+    }
+
+    .slide-menu-item::selection{
+        .slide-menu-sublist{
+            height: auto;
+        }
+    }
+
+    .slider-menu-icon{
+        font-size: 30px;
+        color: $font-grey;
+        margin-right: 32px;
+        vertical-align: middle;
+    }
+
+    .slide-menu-sublist{
+        padding-left: 16px;
+        background-color: $bg-grey;
+        height: 0;
+        transform: all .3s linear;
+        overflow: hidden;
+    }
+
+    .slide-divider{
+        display: block;
+        margin: 8px 0;
+        height: 1px;
+        background-color: $border-deep;
+    }
+}

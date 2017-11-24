@@ -1,0 +1,25 @@
+@charset 'utf-8';
+
+@media only screen and (max-width: 1024px){
+    .views-navbar-nav {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    #app{
+        .views-home-content{
+            padding-bottom: 0;
+        }
+        .views-footer{
+            padding: 25px 0;
+            .footer-left{
+                text-align: center;
+                flex: 1;
+            }
+            .footer-links-icon {
+                display: none;
+            }
+        }
+    }
+}
