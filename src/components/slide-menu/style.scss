@@ -1,20 +1,39 @@
 @charset 'utf-8';
 @import '~scss/base/var';
 
-.components-slide-menu{
+.pop-mask{
     position: fixed;
     top: 0;
-    right: -280px;
+    width: 100%;
+    // left: 100%;
+    right: -100%;
     bottom: 0;
     z-index: 99;
+    transition: all .6s ease-out;
+    // pointer-events: none;
+    // background-color: transparent;
+    &.show{
+        transform: translate(-100%);
+        // background-color: rgba($color: $bg-footer, $alpha: .6);
+    }
+}
+
+.components-slide-menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    // right: -280px;
+    bottom: 0;
+    height: 100%;
+    // z-index: 99;
     // display: none;
     background-color: rgb(255, 254, 254);
     transform: translate(0px);
-    transition: all .3s ease-in;
+    // transition: all .3s ease-in;
     min-width: 280px;
-    &.show{
-        transform: translate(-280px);
-    }
+    // &.show{
+    //     transform: translate(-280px);
+    // }
     .slide-menu-header{
         color: $font-white;
         background-color: $base-color;
@@ -42,12 +61,12 @@
     .menu-header-button{
         background: transparent;
         border: none;
-        margin: 15px;
-        padding: 0;
+        padding: 15px;
         position: absolute;
         right: 0;
         top: 0;
         font-size: 20px;
+        cursor: pointer;
         color: $font-base;
     }
 

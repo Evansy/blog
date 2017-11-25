@@ -10,9 +10,18 @@
     line-height: 60px;
     z-index: 10;
     color: $font-white;
-    transition: all .5s ease;
-    &.hide{
-        transform: translateY(-60px);
+    // logo及MORE
+    .views-navbar-wrapper{
+        transition: all .5s ease;
+        &.hide{
+            transform: translateY(-60px);
+        }
+    }
+
+    // 半透明背景
+    &.trans-bg{
+        background-color: rgba($color: $bg-white, $alpha: .9);
+        color: $font-base;
     }
 
     // 导航栏部分
@@ -68,6 +77,7 @@
         top: 0;
         right: 30px;
         cursor: pointer;
+        pointer-events: none;
     }
 }
 

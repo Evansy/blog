@@ -1,8 +1,4 @@
 'use strict';
-import member from 'utils/member';
-import { chartTargetUrl } from 'settings';
-import Router from 'routers';
-import store from 'vuexs';
 // Object Assign 及 polify 深度复制对象 详细用法参考 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 /**
  * 对象浅复制
@@ -214,35 +210,48 @@ const getTimeStr = function () {
         endTime: timeEndStr
     };
 };
-
-const openChartResult = ({ options }) => {
-    // Router.push({
-    //     path: '/result',
-    //     query: options
-    // });
-    let { title, ...payload } = options;
-
-    store.dispatch('updateChartResult', payload);
-    store.dispatch('updateChartResultTitle', title);
-};
-
-const openChartResult1 = ({ url, options, win, urlEncode }) => {
-    let token = member.getUserToken();
-    let TimeStr = getTimeStr();
-    let params = JSON.stringify({
-        startTime: urlEncode ? TimeStr.startTime.replace("%20", " ") : TimeStr.startTime,
-        endTime: urlEncode ? TimeStr.endTime.replace("%20", " ") : TimeStr.endTime,
-        ...options
-    });
-    urlEncode && (params = encodeURI(params));
-
-    // console.log(urlEncode, params);
-    if (win) {
-        win.location.href = `${chartTargetUrl}/${url}.htm?param=${params}&token=${token}`;
-    } else {
-        window.open(`${chartTargetUrl}/${url}.htm?param=${params}&token=${token}`);
+/**
+ * 函数节流
+ * @param {Function} method 
+ * @param {Number} delay 
+ * @param {Number} duration 
+ */
+const throttle = (method, delay, duration) => {
+    var timer = null, begin = new Date();
+    return function(){
+        var context = this,
+            args = arguments,
+            current = new Date();
+        clearTimeout(timer);
+        if(current - begin >= duration){
+            method.apply(context, args);
+            begin = current;
+        }else{
+            timer = setTimeout(function(){
+                method.apply(context, args);
+            }, delay);
+        }
     }
-};
+}
+
+const ModalHelper = (function(bodyCls) {
+    var scrollTop;
+    return {
+        afterOpen: function() {
+            scrollTop = document.scrollingElement.scrollTop;
+            console.log(scrollTop);
+            document.body.classList.add(bodyCls);
+            document.body.style.top = -scrollTop + 'px';
+        },
+        beforeClose: function() {
+            document.body.classList.remove(bodyCls);
+            console.log(scrollTop);
+            // scrollTop lost after set position:fixed, restore it back.
+            document.scrollingElement.scrollTop = scrollTop;
+            document.body.style.removeProperty('top');
+        }
+    };
+})('modal-open');
 
 export {
     assign,
@@ -253,5 +262,6 @@ export {
     typeOf,
     randomColor,
     getTimeStr,
-    openChartResult
+    throttle,
+    ModalHelper
 };

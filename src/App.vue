@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <navbar @click.native="toggleSlider"></navbar>
-        <slide-menu :class="{show: showSlider}"></slide-menu>
+        <navbar @on-more-click="toggleSlider"></navbar>
+        <slide-menu v-model="showSlider"></slide-menu>
         <router-view/>
         <footbar></footbar>
     </div>
