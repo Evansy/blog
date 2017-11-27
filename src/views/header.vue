@@ -54,7 +54,6 @@ export default {
     },
     mounted(){
         this.$nextTick(()=>{
-            this.clientHeight = document.body.scrollHeight;             // 浏览区域高度
             this.screenHeight = document.body.clientHeight;              // 屏幕高度
 
             // 开始监听scroll事件
@@ -70,10 +69,12 @@ export default {
             // 滑动距离
             let scrollTop = document.documentElement.scrollTop;
 
-            // console.log(scrollTop, this.clientHeight, this.screenHeight);
+            let clientHeight = document.body.scrollHeight;  // 浏览区域高度 切换路由时会改变
+
+            // console.log(scrollTop, clientHeight, this.screenHeight);
 
             // 向上滑动时显示tabbar, 到底部时也显示
-            this.navbarHide = scrollTop > this.preScrollTop && (this.clientHeight > scrollTop + this.screenHeight);
+            this.navbarHide = scrollTop > this.preScrollTop && (clientHeight > scrollTop + this.screenHeight);
 
             // 只要tabbar显示了就加背景，除了在顶部的时候
             this.transBg = !this.navbarHide && scrollTop > 0;
