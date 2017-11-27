@@ -26,7 +26,7 @@
                 MORE
             </div>
         </div>
-        <span class="views-navbar-menu">
+        <span class="views-navbar-menu" @click="onMoreClick">
             <i class="iconfont icon-menu"></i>
         </span>
         <!-- 菜单图标 END -->
@@ -48,7 +48,7 @@ export default {
     },
     mounted(){
         this.$nextTick(()=>{
-            this.clientHeight = document.body.scrollHeight ;             // 浏览区域高度
+            this.clientHeight = document.body.scrollHeight;             // 浏览区域高度
             this.screenHeight = document.body.clientHeight;              // 屏幕高度
 
             this.listenScroll();
@@ -63,7 +63,7 @@ export default {
             // 滑动距离
             let scrollTop = document.documentElement.scrollTop;
 
-            // console.log(scrollTop, this.clientHeight, this.screenHeight);
+            console.log(scrollTop, this.clientHeight, this.screenHeight);
 
             // 向上滑动时显示tabbar, 到底部时也显示
             this.navbarHide = scrollTop > this.preScrollTop && (this.clientHeight > scrollTop + this.screenHeight);

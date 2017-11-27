@@ -4,6 +4,7 @@
         <slide-menu v-model="showSlider"></slide-menu>
         <router-view/>
         <footbar></footbar>
+        <!-- <go-top></go-top> -->
     </div>
 </template>
 
@@ -11,7 +12,7 @@
 import navbar from './views/header';
 import footbar from './views/footer';
 
-import { slideMenu } from 'components';
+import { slideMenu, goTop } from 'components';
 
 export default {
     name: 'app',
@@ -23,7 +24,8 @@ export default {
     components: {
         navbar,
         slideMenu,
-        footbar
+        footbar,
+        goTop
     },
     methods: {
         toggleSlider(){

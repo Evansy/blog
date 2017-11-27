@@ -22,6 +22,19 @@
     &.trans-bg{
         background-color: rgba($color: $bg-white, $alpha: .9);
         color: $font-base;
+        .views-navbar-item:link,
+        .views-navbar-item:visited{
+            color: $font-base;
+        }
+
+        .views-navbar-item:hover,
+        .views-navbar-item:active{
+            color: $base-color;
+        }
+
+        .views-navbar-item.always{
+            color: $font-base;
+        }
     }
 
     // 导航栏部分
@@ -75,9 +88,10 @@
     .views-navbar-menu{
         position: fixed;
         top: 0;
-        right: 30px;
+        right: 0;
+        padding: 0 30px;
         cursor: pointer;
-        pointer-events: none;
+        // pointer-events: none;
     }
 }
 
