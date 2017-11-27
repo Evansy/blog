@@ -1,20 +1,20 @@
 <template>
-    <header class="views-navbar" :class="{'trans-bg': transBg}">
+    <header class="views-navbar" :class="{'trans-bg': transBg, 'font-base': !isHome}">
         <div class="views-navbar-wrapper" :class="{hide: navbarHide}">
             <!-- logo BEGIN -->
-            <a href="#" class="views-navbar-logo"></a>
+            <router-link to="/" class="views-navbar-logo" title="Evan's Blog"></router-link>
             <!-- logo END -->
 
             <!-- 顶部栏 BEGIN -->
             <nav class="container views-navbar-nav">
-                <a class="views-navbar-item font-brand" href="#">Evan's Blog</a>
+                <router-link to="/" class="views-navbar-item font-brand">Evan's Blog</router-link>
                 <a class="views-navbar-item always" href="javascript: void(0);">
                     <i>Always</i>  CREATIVE.
                 </a>
-                <a class="views-navbar-item" href="javascript: void(0);">
+                <a class="views-navbar-item" href="https://github.com/Evansy" target="_blank" title="github">
                     <i class="iconfont icon-git"></i>
                 </a>
-                <a class="views-navbar-item" href="javascript: void(0);">
+                <a class="views-navbar-item" href="https://weibo.com/sk608" target="_blank" title="微博">
                     <i class="iconfont icon-weibo"></i>
                 </a>
                 <a class="views-navbar-item always" href="javascript: void(0);"><i>Welcome!</i></a>
@@ -41,16 +41,23 @@ export default {
     name: 'navbar',
     data(){
         return {
-            navbarHide: false,
-            transBg: false,
-            preScrollTop: 0
+            navbarHide: false,      // 隐藏顶部栏
+            transBg: false,         // 背景变色
+            preScrollTop: 0         // 上次滚动的scrolltop值
         };
+    },
+    computed: {
+        // 当前内是否首页
+        isHome(){
+            return this.$route.name === "Home";
+        }
     },
     mounted(){
         this.$nextTick(()=>{
             this.clientHeight = document.body.scrollHeight;             // 浏览区域高度
             this.screenHeight = document.body.clientHeight;              // 屏幕高度
 
+            // 开始监听scroll事件
             this.listenScroll();
         });
     },
@@ -63,7 +70,7 @@ export default {
             // 滑动距离
             let scrollTop = document.documentElement.scrollTop;
 
-            console.log(scrollTop, this.clientHeight, this.screenHeight);
+            // console.log(scrollTop, this.clientHeight, this.screenHeight);
 
             // 向上滑动时显示tabbar, 到底部时也显示
             this.navbarHide = scrollTop > this.preScrollTop && (this.clientHeight > scrollTop + this.screenHeight);

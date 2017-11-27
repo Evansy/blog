@@ -6,8 +6,12 @@
                 <p>鄂ICP备15007105号</p>
             </div>
             <div class="footer-right">
-                <a class="footer-links-icon" href="javascript:;"><i class="iconfont icon-git"></i></a>
-                <a class="footer-links-icon" href="javascript:;"><i class="iconfont icon-weibo"></i></a>
+                <a class="footer-links-icon" href="https://github.com/Evansy" target="_blank" title="github">
+                    <i class="iconfont icon-git"></i>
+                </a>
+                <a class="footer-links-icon" href="https://weibo.com/sk608" target="_blank" title="微博">
+                    <i class="iconfont icon-weibo"></i>
+                </a>
             </div>
         </div>
     </footer>

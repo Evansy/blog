@@ -73,7 +73,7 @@
     .slide-menu-item,
     .slide-menu-subitem{
         position: relative;
-        margin-top: 8px;
+        // margin-top: 8px;
         cursor: pointer;
         user-select: none;
         display: block;
@@ -86,14 +86,24 @@
         line-height: 48px;
         text-decoration: none;
         text-overflow: ellipsis;
-        &:link {
+        &:link,
+        &:visited {
             color: $font-base;
         }
-    }
 
-    .slide-menu-item::selection{
-        .slide-menu-sublist{
-            height: auto;
+        &:hover,
+        &:active {
+            color: $base-color;
+            .iconfont{
+                color: $base-color;
+            }
+        }
+
+        &.active{
+            color: $base-color;
+            .iconfont{
+                color: $base-color;
+            }
         }
     }
 
@@ -105,11 +115,23 @@
     }
 
     .slide-menu-sublist{
-        padding-left: 16px;
-        background-color: $bg-grey;
+        // padding-left: 16px;
+        color: $font-base;
+        // background-color: $bg-slider;
+        &.show .slide-menu-subitem{
+            height: 48px;
+            // margin-top: 8px;
+        }
+    }
+
+    .slide-menu-subitem{
         height: 0;
-        transform: all .3s linear;
+        transition: all .3s linear;
         overflow: hidden;
+        padding-left: 32px;
+        &:hover{
+            background-color: $bg-slider;
+        }
     }
 
     .slide-divider{

@@ -36,7 +36,6 @@ export default{
 		toggleGoTop(){
 			let ContainerHeight = document.body.offsetHeight;
 			let marginTop = this.scroll.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
-			console.log(123456, marginTop, ContainerHeight);
 			this.isShow = marginTop > ContainerHeight;
 		},
 

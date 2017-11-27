@@ -40,7 +40,7 @@ body{
 	min-width: 3.2rem;
 	// max-width: 5.4rem;
 	margin: 0 auto !important;
-    background-color: $bg-body;
+    // background-color: $bg-body;
     position: relative;
     &.modal-open {
         position: fixed;
@@ -58,6 +58,7 @@ body{
 .container{
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
     &.flex{
         display: flex;
         align-items: center;

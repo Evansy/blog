@@ -14,7 +14,7 @@
                 </button>
                 <!-- 关闭按钮 END -->
                 <!-- 头部菜单邮箱 BEGIN -->
-                <div class="menu-header-dropdown slide-menu-subitem slider-dropdown font-lightgrey">
+                <div class="menu-header-dropdown slide-menu-item slider-dropdown font-lightgrey">
                     <span>skcy@vip.qq.com</span>
                     <i class="iconfont icon-arrow-down"></i>
                 </div>
@@ -26,29 +26,29 @@
             <nav class="slide-menu-list">
                 <!-- 头部菜单的子菜单项 BEGIN -->
                 <nav class="slide-menu-sublist">
-                    <a class="slide-menu-subitem" href="javascript: void(0);">
+                    <a class="slide-menu-subitem" href="mailto:skcy@vip.qq.com">
                         <i class="iconfont slider-menu-icon icon-git"></i>
                         <span>Email Me</span>
                     </a>
-                    <a class="slide-menu-subitem" href="javascript: void(0);">
+                    <a class="slide-menu-subitem" href="//iskcy.com">
                         <i class="iconfont slider-menu-icon icon-git"></i>
                         <span>iskcy.com</span>
                     </a>
                 </nav>
                 <!-- 头部菜单的子菜单项 END -->
                 <!-- 正常菜单项 BEGIN -->
-                <a class="slide-menu-item" href="javascript: void(0);">
+                <a class="slide-menu-item" :class="{'active':  showSub === 0}" href="javascript: void(0);" @click="switchMenu(0)">
                     <i class="iconfont slider-menu-icon icon-git"></i>
                     <span>主页</span>
-                    <!-- 子菜单项 BEGIN -->
-                    <nav class="slide-menu-sublist">
-                        <a class="slide-menu-subitem" href="javascript: void(0);">
-                            <i class="iconfont icon-git"></i>
-                            <span>Email Me</span>
-                        </a>
-                    </nav>
-                    <!-- 子菜单项 END -->
                 </a>
+                <!-- 子菜单项 BEGIN -->
+                <nav class="slide-menu-sublist" :class="{'show': showSub === 0}">
+                    <router-link to="/" class="slide-menu-subitem" :class="{'active':  showSub === 0}">
+                        <i class="iconfont icon-git"></i>
+                        <span>Email Me</span>
+                    </router-link>
+                </nav>
+                <!-- 子菜单项 END -->
                 <!-- 正常菜单项 END -->
                 <!-- 菜单分割线 BEGIN -->
                 <a href="javascript:void(0);" class="slide-divider"></a>
@@ -68,6 +68,11 @@ export default {
     name: 'slide-menu',
     props: {
         value: Boolean
+    },
+    data(){
+        return {
+            showSub: null
+        };
     },
     computed: {
         showSlider: {
@@ -93,6 +98,10 @@ export default {
     methods: {
         toggleShow(){
             this.showSlider = !this.showSlider;
+        },
+
+        switchMenu(index){
+            this.showSub = this.showSub !== index ? index : null;
         }
     }
 }

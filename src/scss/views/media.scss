@@ -8,6 +8,12 @@
 
 @media only screen and (max-width: 400px){
     #app{
+        .page-content{
+            padding-bottom: 122px;
+        }
+        .views-footer{
+            margin-top: -122px;
+        }
         .views-home-content{
             padding-bottom: 0;
         }
