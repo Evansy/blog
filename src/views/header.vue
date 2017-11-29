@@ -67,7 +67,7 @@ export default {
 
         dealAnimate() {
             // 滑动距离
-            let scrollTop = document.documentElement.scrollTop;
+            let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 
             let clientHeight = document.body.scrollHeight;  // 浏览区域高度 切换路由时会改变
 
