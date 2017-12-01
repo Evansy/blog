@@ -71,7 +71,7 @@ export default {
 
             let clientHeight = document.body.scrollHeight;  // 浏览区域高度 切换路由时会改变
 
-            // console.log(scrollTop, clientHeight, this.screenHeight);
+            console.log(scrollTop, clientHeight, this.screenHeight);
 
             // 向上滑动时显示tabbar, 到底部时也显示
             this.navbarHide = scrollTop > this.preScrollTop && (clientHeight > scrollTop + this.screenHeight);
