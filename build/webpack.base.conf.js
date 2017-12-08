@@ -36,7 +36,7 @@ module.exports = {
             'libs': resolve('src/common/libs'),
             'settings': resolve('src/common/settings'),
             'views': resolve('src/views'),
-            'routers': resolve('src/routers'),
+            'routers': resolve('src/router'),
             'scss': resolve('src/scss'),
             'vuexs': resolve('src/vuexs')
         }

@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+
         <!-- 顶部栏 BEGIN -->
         <navbar @on-more-click="toggleSlider"></navbar>
         <!-- 顶部栏 END -->
@@ -17,7 +18,7 @@
         <!-- 页脚区域 BEIGN -->
         <footbar></footbar>                    
         <!-- 页脚区域 END -->
-        <!-- <go-top></go-top> -->
+
     </div>
 </template>
 
