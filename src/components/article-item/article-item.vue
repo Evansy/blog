@@ -1,6 +1,6 @@
 <template>
     <article class="components-article-item">
-        <div class="article-item-banner">
+        <div class="article-item-banner" :style="{backgroundImage: `url(${articleInfo.image ? articleInfo.image : require('assets/main-banner1.jpg')})`}">
             <h2 class="article-item-title">{{articleInfo.title}}</h2>
         </div>
         <div class="article-item-introduce">

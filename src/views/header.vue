@@ -1,6 +1,7 @@
 <template>
     <header class="views-navbar" :class="{'trans-bg': transBg, 'font-base': !isHome}">
         <div class="views-navbar-wrapper" :class="{hide: navbarHide}">
+
             <!-- logo BEGIN -->
             <router-link to="/" class="views-navbar-logo" title="Evan's Blog"></router-link>
             <!-- logo END -->
@@ -69,7 +70,8 @@ export default {
             // 滑动距离
             let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 
-            let clientHeight = document.body.scrollHeight;  // 浏览区域高度 切换路由时会改变
+            // 浏览区域高度 切换路由时会改变
+            let clientHeight = document.body.scrollHeight;
 
             // console.log(scrollTop, clientHeight, this.screenHeight);
 
