@@ -7,7 +7,7 @@ import "./cy";
 export default {
     name: "discus-box",
     props: {
-        sid: String,
+        sid: Number,
         require: true
     }
 }

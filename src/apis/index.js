@@ -21,4 +21,4 @@ let send = (options, url, method) => {
 };
 
 export const articleList                = options => send(options, API.articleList, 'get');                  // 文章列表
-export const articleDetail              = options => send(options, API.articleList, 'get');                  // 文章详情
+export const articleDetail              = options => send(options, API.article + (options.aid ? `/${options.aid}` : ''), 'get');                  // 文章详情

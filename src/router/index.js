@@ -7,16 +7,16 @@ import Detail from 'views/detail'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/Detail/:id',
-      name: 'Detail',
-      component: Detail
-    },
-  ]
-})
+    routes: [
+        {
+            path: '/',
+            name: 'Home',
+            component: Home
+        },
+        {
+            path: '/Detail/:aid',
+            name: 'Detail',
+            component: Detail
+        },
+    ]
+});

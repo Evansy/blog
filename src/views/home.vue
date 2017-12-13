@@ -7,13 +7,22 @@
         <!-- 内容区域 BEGIN -->
         <div class="views-home-content container">
             <article-item v-for="(item, index) in articleDatas" :article-info="item" :key="index"></article-item>
+
+            <!-- 加载更多 BEIGN -->
+            <div class="loadmore-content tc" v-if="!allLoaded">
+                <button class="btn btn-primary outline" type="button" @click="getArticleList">加载更多</button>
+            </div>
+
+            <line-through v-else message="没有更多文章了哦"></line-through>
+            <!-- 加载更多 END -->
         </div>
         <!-- 内容区域 END -->
+
     </section>
 </template>
 
 <script>
-import { articleItem } from 'components';
+import { articleItem, lineThrough } from 'components';
 import firstPage from './first-page';
 
 import { articleList } from 'apis';
@@ -22,12 +31,16 @@ export default {
     name: 'views-home',
     data(){
         return {
-            articleDatas: []
+            articleDatas: [],
+            allLoaded: false,
+            pageIndex: 1,
+            pageSize: 2
         }
     },
     components: {
         articleItem,
-        firstPage
+        firstPage,
+        lineThrough
     },
     created(){
         this.getArticleList();
@@ -38,14 +51,27 @@ export default {
             articleList({
                 params: {
                     payload: {
-                        page: 1,
+                        page: this.pageIndex,
                         value: '全部',
-                        limit: 10
+                        limit: this.pageSize
                     }
                 }
             }).then(res => {
-                this.articleDatas = res;
-            })
+                if(res && res.length > 0){
+                    this.articleDatas = this.articleDatas.concat(res);
+
+                    if(res.length < 10){
+                        this.allLoaded = true;
+                    }
+
+                    this.pageIndex++;                    
+                }
+            });
+        },
+
+        // 加载更多
+        onLoadMore(){
+
         }
     }
 };

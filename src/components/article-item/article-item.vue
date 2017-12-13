@@ -5,12 +5,12 @@
         </div>
         <div class="article-item-introduce">
             <p class="article-item-meta">
-                <a class="article-item-category font-blue" href="javascript: void(0);">{{articleInfo.tags}}</a> / 
-                <span class="article-item-time">{{articleInfo.date}}</span>
+                <a class="article-item-category font-blue" href="javascript: void(0);">{{articleInfo.tags && articleInfo.tags[0]}}</a> / 
+                <span class="article-item-time">{{time}}</span>
             </p>
             <div class="article-item-content">
-                <p class="article-item-text">{{articleInfo.content}}</p>
-                <router-link :to="{name: 'Detail', params: {id: 10}}" class="unl font-blue article-read-more">阅读全文</router-link>
+                <p class="article-item-text">{{content}}</p>
+                <router-link :to="{name: 'Detail', params: {aid: articleInfo.aid}}" class="unl font-blue article-read-more">阅读全文</router-link>
             </div>
         </div>
     </article>
@@ -22,6 +22,15 @@ export default {
     props: {
         articleInfo: {
             type: Object
+        }
+    },
+    computed: {
+        content() {
+            // 去掉所有html标签，并截取前120个字符串
+            return this.articleInfo.content && this.articleInfo.content.replace(/<[^>]+>/g, '').substr(0, 120);
+        },
+        time() {
+            return this.articleInfo.date && this.articleInfo.date.substr(0, 10);
         }
     }
 }

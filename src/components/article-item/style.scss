@@ -57,8 +57,11 @@
 
     .article-read-more{
         position: absolute;
-        right: 10px;
+        right: 0;
         bottom: 0;
+        line-height: 1.2;
+        padding: 0 15px;
+        background-color: #fff;
     }
 }
 
@@ -73,6 +76,7 @@
         .article-read-more{
             position: relative;
             right: 0;
+            padding-left: 0;
         }
     }
 }
