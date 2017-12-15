@@ -79,7 +79,7 @@ export default {
             this.navbarHide = scrollTop > this.preScrollTop && (clientHeight > scrollTop + this.screenHeight);
 
             // 只要tabbar显示了就加背景，除了在顶部的时候
-            this.transBg = !this.navbarHide && scrollTop > 10;
+            this.transBg = !this.navbarHide && scrollTop > 40;
 
             // 保存本次滑动距离
             this.preScrollTop = scrollTop;

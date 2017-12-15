@@ -10,7 +10,9 @@
         <div class="article-detail-content container" v-html="content.content">
             
         </div>
-        <changyan v-if="aid" :sid="aid"></changyan>
+        <div class="container">
+            <changyan :sid="aid"></changyan>
+        </div>
     </div>
 </template>
 
