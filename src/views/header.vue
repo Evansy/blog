@@ -35,7 +35,6 @@
 </template>
 
 <script>
-
 import { throttle } from 'utils/extends';
 
 export default {
