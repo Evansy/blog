@@ -54,7 +54,8 @@ export default {
     },
     mounted(){
         this.$nextTick(()=>{
-            this.screenHeight = document.body.clientHeight;              // 屏幕高度
+            // 屏幕高度
+            this.screenHeight = document.body.clientHeight;
 
             // 开始监听scroll事件
             this.listenScroll();
