@@ -11,7 +11,7 @@
             
         </div>
         <div class="container">
-            <changyan v-if="aid" :sid="aid"></changyan>
+            <changyan v-if="loaded" :sid="aid"></changyan>
         </div>
     </div>
 </template>
@@ -24,6 +24,7 @@ export default {
     data() {
         return{
             aid: null,
+            loaded: false,
             content: {}
         }
     },
@@ -42,6 +43,7 @@ export default {
                 aid: aid
             }).then(res => {
                 this.content = res;
+                this.loaded = true;
             })
         }
     }

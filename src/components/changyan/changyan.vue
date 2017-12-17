@@ -13,7 +13,8 @@ export default {
     mounted(){
         this.$nextTick(() => {
             // 加载畅言js
-            changyan();
+            let sohudiv = document.getElementById('SOHUCS');
+            sohudiv && changyan();
         })
     }
 }
