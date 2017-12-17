@@ -11,7 +11,7 @@
             
         </div>
         <div class="container">
-            <changyan :sid="aid"></changyan>
+            <changyan v-if="aid" :sid="aid"></changyan>
         </div>
     </div>
 </template>
