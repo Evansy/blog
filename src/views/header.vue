@@ -75,14 +75,14 @@ export default {
 
             // console.log(scrollTop, clientHeight, this.screenHeight);
 
-            // 向上滑动时显示tabbar, 到底部时也显示
+            // 向下滑动时显示tabbar, 到底部时也显示
             this.navbarHide = scrollTop > this.preScrollTop && (clientHeight > scrollTop + this.screenHeight);
 
             // 只要tabbar显示了就加背景，除了在顶部的时候
-            this.transBg = !this.navbarHide && scrollTop > 40;
+            this.transBg = !this.navbarHide && scrollTop > 20;
 
-            // 保存本次滑动距离
-            this.preScrollTop = scrollTop;
+            // 保存本次滑动距离(ios下因为橡皮筋效果会回弹，所以保留个最小值)
+            this.preScrollTop = scrollTop < 15 ? 15 : scrollTop;
         },
 
         // 点击了more按钮

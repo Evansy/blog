@@ -4,12 +4,14 @@
 
 .first-page{
     height: 100vh;
+    max-width: 100%;
     overflow: hidden;
     position: relative;
     background-color: $font-white;
     background-image: url("~assets/main-banner.jpg");
-    background-attachment: fixed;
-    background-size: contain;
+    // background-attachment: fixed;
+    background-size: 100%; 
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 
