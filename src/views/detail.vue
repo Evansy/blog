@@ -11,7 +11,9 @@
             
         </div>
         <div class="container">
-            <changyan v-if="loaded" :sid="aid"></changyan>
+            <keep-alive>
+                <changyan v-if="loaded" :sid="aid"></changyan>
+            </keep-alive>
         </div>
     </div>
 </template>
