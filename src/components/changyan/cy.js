@@ -3,13 +3,12 @@ export default function() {
     var conf = "prod_06fa1c42c75a51e9eb36805c1371c5b5";
     var width = window.innerWidth || document.documentElement.clientWidth;
     if (width < 960) {
-        window.document.write(
-            '<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' +
-                appid +
-                "&conf=" +
-                conf +
-                '"></script>'
-        );
+        var cyScript = document.createElement('script');
+        cyScript.id = 'changyan_mobile_js';
+        cyScript.charset = 'utf-8';
+        cyScript.type = 'text/javascript';
+        cyScript.src = 'https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + "&conf=" + conf;
+        window.document.body.appendChild(cyScript);
     } else {
         var loadJs = function(d, a) {
             var c =
