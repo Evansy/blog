@@ -1,4 +1,4 @@
-(function() {
+export default changyan = function() {
     var appid = "cytltFcnU";
     var conf = "prod_06fa1c42c75a51e9eb36805c1371c5b5";
     var width = window.innerWidth || document.documentElement.clientWidth;
@@ -39,4 +39,4 @@
             window.changyan.api.config({ appid: appid, conf: conf });
         });
     }
-})();
+};
