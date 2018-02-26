@@ -7,7 +7,7 @@
                 <span class="article-publish-time font-grey">{{content.date}}</span>
             </div>
         </div>
-        <div class="article-detail-content container" v-html="content.content">
+        <div class="article-detail-content container" v-html="content.content" v-highlight>
             
         </div>
         <div class="container">

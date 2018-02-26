@@ -16,6 +16,13 @@ Object.keys(filters).forEach(name => {
     Vue.filter(name, filters[name]);
 });
 
+Vue.directive('highlight',function (el) {
+    let blocks = el.querySelectorAll('pre code');
+    blocks.forEach((block)=>{
+        hljs.highlightBlock(block)
+    });
+});
+
 // 注册全局函数
 Vue.use(Axios);
 
