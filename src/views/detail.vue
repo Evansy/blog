@@ -21,6 +21,10 @@
 <script>
 import { changyan } from 'components';
 import { articleDetail } from 'apis';
+
+import highlight from "src/common/directive/highlight";
+
+
 export default {
     name: 'article-detail',
     data() {
@@ -30,9 +34,12 @@ export default {
             content: {}
         }
     },
+    directives: {
+        highlight
+    },
     created(){
         let params = this.$route.params
-        params.aid && (this.aid = params.aid);
+        params.aid && (this.aid = +params.aid);
 
         this.getDetail(params.aid);
     },

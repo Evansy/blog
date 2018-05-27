@@ -31,4 +31,10 @@
         padding-bottom: 20px;
         line-height: 1.8;
     }
+
+    // 代码高亮样式
+    .hljs{
+        overflow: hidden;
+        overflow-x: auto;
+    }
 }

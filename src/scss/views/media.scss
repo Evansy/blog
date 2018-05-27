@@ -6,7 +6,20 @@
     }
 }
 
-@media only screen and (max-width: 400px){
+@media screen and (min-width:351px) and (max-width: 840px){
+    #app{
+        .views-home-content{
+            padding-bottom: 10px;
+        }
+
+        .components-article-item:last-of-type{
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 350px){
     #app{
         .page-content{
             padding-bottom: 122px;
